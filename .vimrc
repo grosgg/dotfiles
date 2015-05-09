@@ -20,6 +20,12 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-commentary'
 
+" Snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
 " Language specific
 Plugin 'tpope/vim-rails'
 
@@ -72,11 +78,12 @@ set spelllang=en_gb
 set foldmethod=indent
 set foldlevel=99
 
-let g:nerdtree_tabs_autoclose=0
+" let g:nerdtree_tabs_autoclose=0
 let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_open_on_gui_startup=0
-let g:nerdtree_tabs_smart_startup_focus=2
+let g:nerdtree_tabs_smart_startup_focus=0
 let g:nerdtree_tabs_startup_cd=1
+let g:nerdtree_tabs_open_on_new_tab=0
 map <F2> <plug>NERDTreeTabsToggle<CR>
 
 let g:gitgutter_sign_added = 'A'
