@@ -1,7 +1,6 @@
 #!/bin/sh
-if [[ ! \( -e ~/.vimrc \) ]]; then
-  ln -s ~/dotfiles/zsh ~/.zsh
-  ln -s ~/dotfiles/bin ~/.bin
+if [ ! \( -e ~/.vimrc \) ]; then
+  rm ~/.zshrc
   ln -s ~/dotfiles/aliases ~/.aliases
   ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
   ln -s ~/dotfiles/vimrc ~/.vimrc
