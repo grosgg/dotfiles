@@ -1,7 +1,5 @@
-# Path to your oh-my-zsh installation.
-# export ZSH=$HOME/.oh-my-zsh
-
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
+source ~/.oh-my-zsh/oh-my-zsh.sh
 
 plugins=(tmux git ruby bundler rails capistrano)
 
