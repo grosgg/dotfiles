@@ -1,6 +1,4 @@
 #!/bin/sh
-fancy_echo "Symlinking dotfiles"
-
 if [[ ! \( -e ~/.vimrc \) ]]; then
   ln -s ~/dotfiles/zsh ~/.zsh
   ln -s ~/dotfiles/bin ~/.bin
