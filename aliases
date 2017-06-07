@@ -1,0 +1,22 @@
+# Unix
+alias tlf="tail -f"
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias ...='../..'
+alias ll='ls -al'
+alias lh='ls -Alh'
+alias -g G='| grep'
+alias -g M='| less'
+alias -g L='| wc -l'
+alias -g ONE="| awk '{ print \$1}'"
+alias e="$EDITOR"
+alias v="$VISUAL"
+
+# Pretty print the path
+alias path="echo $PATH | tr -s ':' '\n'"
+
+# Navigation
+alias cdsrc="cd ~/src"
+
+# Go to the root of a project (git root)
+alias root='cd $(git rev-parse --show-cdup)'

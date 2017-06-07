@@ -1,0 +1,125 @@
+" :so % to refresh .vimrc after making changes
+" :PlugInstall to install new stuff
+" :PlugUpdate to update to latest versions
+"
+
+if &compatible
+  set nocompatible
+end
+
+call plug#begin('~/.vim/plugged')
+
+""" Theme / Pretty stuff
+"""
+" [1]
+Plug 'altercation/vim-colors-solarized'
+Plug 'endel/vim-github-colorscheme'
+" Awesome looking meta at bottom
+" Fugitive will help with git related stuff, and show branch on statusline
+Plug 'tpope/vim-fugitive' | Plug 'bling/vim-airline'
+""
+
+""" Some ESSENTIAL IDE like plugins for Vim
+"""
+" File tree viewer
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Several plugins to help work with Tmux
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'https://github.com/christoomey/vim-tmux-runner'
+Plug 'christoomey/vim-run-interactive'
+
+" Search filesystem with ctrl+p
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Code highlighting and linting
+Plug 'scrooloose/syntastic' "Run linters and display errors etc
+Plug 'pangloss/vim-javascript' | Plug 'mxw/vim-jsx'
+
+" Adds a ; at the end of a line by pressing <leader> ;
+Plug 'lfilho/cosco.vim'
+
+Plug 'jiangmiao/auto-pairs' "MANY features, but mostly closes ([{' etc
+Plug 'vim-scripts/HTML-AutoCloseTag' "close tags after >
+Plug 'vim-scripts/tComment' "Comment easily with gcc
+Plug 'tpope/vim-repeat' "allow plugins to utilize . command
+Plug 'tpope/vim-surround' "easily surround things...just read docs for info
+Plug 'vim-scripts/matchit.zip' " % also matches HTML tags / words / etc
+Plug 'duff/vim-scratch' "Open a throwaway scratch buffer
+
+""" Utilities / Extras / Etc
+
+" Diary, notes, whatever. It's amazing
+Plug 'vimwiki/vimwiki'
+
+call plug#end()
+
+"""" PLUGIN RELATED TWEAKS
+""
+"
+
+" Color scheme
+syntax enable
+" let g:solarized_termcolors=16
+let g:colarized_termtrans = 1
+let g:solarized_termcolors=256
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+colorscheme solarized
+" set background=dark
+" Allow powerline symbols to show up
+let g:airline_powerline_fonts = 1
+
+map <silent> <C-n> :NERDTreeToggle<cr>
+nnoremap <C-t> :call ToggleRelativeOn()<cr>
+" Close vim if only NERDTree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Allow moving around between Tmux windows
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_save_on_switch = 1
+"
+"Open a tmux pane with Node
+nnoremap <leader>node :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'node'}<cr>
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_working_path_mode = 'r'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+
+  let g:ctrlp_extensions = ['line']
+endif
+
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['javascript'], 'passive_filetypes': [] }
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" " Syntastic will search for an .eslintrc in your project, otherwise it defaults
+autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
+" these 2 lines check to see if eslint is installed via local npm and runs that before going global
+let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+" " Allow highlighting of HTML within Javascript (for React)
+let g:javascript_enable_domhtmlcss = 1
+let g:jsx_ext_required = 0
+
+" Set Vim Wiki to my Dropbox directory
+" let g:vimwiki_list = [{'path':'$HOME/Dropbox/vimwiki'}]
