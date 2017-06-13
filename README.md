@@ -3,7 +3,7 @@
 zsh + vim + tmux
 
 ## Setup
-   `git clone git@github.com:grosgg/dotfiles.git ~/dotfiles && cd ~/dotfiles && chmod a+x setup.sh && ./setup.sh`
+   `git clone https://github.com/grosgg/dotfiles.git ~/dotfiles && cd ~/dotfiles && chmod a+x setup.sh && ./setup.sh`
 
 ## Finishing touches
   1. open `tmux` and install plugins: `CTRL + A, I`
