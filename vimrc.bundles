@@ -11,9 +11,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 """ Theme / Pretty stuff
 """
-" [1]
-Plug 'altercation/vim-colors-solarized'
-Plug 'endel/vim-github-colorscheme'
 " Awesome looking meta at bottom
 " Fugitive will help with git related stuff, and show branch on statusline
 Plug 'tpope/vim-fugitive' | Plug 'bling/vim-airline'
@@ -58,15 +55,6 @@ call plug#end()
 ""
 "
 
-" Color scheme
-syntax enable
-" let g:solarized_termcolors=16
-let g:colarized_termtrans = 1
-let g:solarized_termcolors=256
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-colorscheme solarized
-" set background=dark
 " Allow powerline symbols to show up
 let g:airline_powerline_fonts = 1
 
@@ -83,8 +71,6 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
 "
-"Open a tmux pane with Node
-nnoremap <leader>node :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'node'}<cr>
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
