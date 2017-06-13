@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ ! \( -e ~/.config.lock \) ]; then
-  rm ~/.aliases ~/.tmux.conf ~/.vimrc ~/.config/nvim/init.vim ~/.vimrc.bundles ~/.zshenv ~/.zshrc
+  rm -f ~/.aliases ~/.tmux.conf ~/.vimrc ~/.config/nvim/init.vim ~/.vimrc.bundles ~/.zshenv ~/.zshrc
 
   ln -s ~/dotfiles/aliases ~/.aliases
   ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
