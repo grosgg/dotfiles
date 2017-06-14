@@ -128,8 +128,8 @@ endif
 filetype plugin indent on
 
 " resize panes
-nnoremap <silent> <leader>- :vertical resize +5<cr>
-nnoremap <silent> <leader>= :vertical resize -5<cr>
+nnoremap <silent> <leader>- :vertical resize -5<cr>
+nnoremap <silent> <leader>= :vertical resize +5<cr>
 
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
