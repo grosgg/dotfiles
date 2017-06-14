@@ -21,7 +21,6 @@ set autoread      " Reload files changed outside vim
 au FocusGained,BufEnter * :silent! !
 
 "Set default font in mac vim and gvim
-set guifont=Inconsolata\ for\ Powerline:h24
 set cursorline    " highlight the current line
 set visualbell    " stop that ANNOYING beeping
 set wildmenu
@@ -128,15 +127,9 @@ endif
 
 filetype plugin indent on
 
-" zoom a vim pane, <C-w>= to re-balance
-nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <leader>= :wincmd =<cr>
-
 " resize panes
-nnoremap <silent> <Right> :vertical resize +5<cr>
-nnoremap <silent> <Left> :vertical resize -5<cr>
-nnoremap <silent> <Up> :resize +5<cr>
-nnoremap <silent> <Down> :resize -5<cr>
+nnoremap <silent> <leader>- :vertical resize +5<cr>
+nnoremap <silent> <leader>= :vertical resize -5<cr>
 
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
