@@ -46,7 +46,6 @@ set list listchars=tab:»·,trail:·,nbsp:·
 
 " Make it obvious where 100 characters is
 set textwidth=100
-" set formatoptions=cq
 set formatoptions=qrn1
 set wrapmargin=0
 set colorcolumn=+1
@@ -58,12 +57,6 @@ set numberwidth=5
 " Open new split panes to right and bottom, which feels more natural
 " set splitbelow
 set splitright
-
-" Auto resize Vim splits to active split
-set winwidth=104
-set winheight=5
-set winminheight=5
-set winheight=999
 
 " HTML Editing
 set matchpairs+=<:>
@@ -128,11 +121,11 @@ endif
 filetype plugin indent on
 
 " resize panes
-nnoremap <silent> <leader>- :vertical resize -5<cr>
-nnoremap <silent> <leader>= :vertical resize +5<cr>
-
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
+nnoremap <silent> <leader><Left> :vertical resize -5<cr>
+nnoremap <silent> <leader><Right> :vertical resize +5<cr>
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
+
+" Display buffers list
+nnoremap <leader>l :ls

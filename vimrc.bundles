@@ -36,13 +36,13 @@ Plug 'pangloss/vim-javascript' | Plug 'mxw/vim-jsx'
 " Adds a ; at the end of a line by pressing <leader> ;
 Plug 'lfilho/cosco.vim'
 
-Plug 'jiangmiao/auto-pairs' "MANY features, but mostly closes ([{' etc
+Plug 'jiangmiao/auto-pairs'          "MANY features, but mostly closes ([{' etc
 Plug 'vim-scripts/HTML-AutoCloseTag' "close tags after >
-Plug 'vim-scripts/tComment' "Comment easily with gcc
-Plug 'tpope/vim-repeat' "allow plugins to utilize . command
-Plug 'tpope/vim-surround' "easily surround things...just read docs for info
-Plug 'vim-scripts/matchit.zip' " % also matches HTML tags / words / etc
-Plug 'duff/vim-scratch' "Open a throwaway scratch buffer
+Plug 'vim-scripts/tComment'          "Comment easily with gcc
+Plug 'tpope/vim-repeat'              "allow plugins to utilize . command
+Plug 'tpope/vim-surround'            "easily surround things...
+Plug 'vim-scripts/matchit.zip'       " % also matches HTML tags / words / etc
+Plug 'duff/vim-scratch'              "Open a throwaway scratch buffer
 
 """ Utilities / Extras / Etc
 
@@ -51,9 +51,8 @@ Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
+
 """" PLUGIN RELATED TWEAKS
-""
-"
 
 map <silent> <C-n> :NERDTreeToggle<cr>
 nnoremap <C-t> :call ToggleRelativeOn()<cr>
