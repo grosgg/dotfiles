@@ -128,4 +128,4 @@ nnoremap <silent> <leader><Right> :vertical resize +5<cr>
 nnoremap <leader><leader> <c-^>
 
 " Display buffers list
-nnoremap <leader>l :ls
+nnoremap <leader>l :buffers<cr>:buffer<Space>
