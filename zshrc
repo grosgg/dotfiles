@@ -42,3 +42,9 @@ bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 
 export PATH="$HOME/.rbenv/bin:$PATH"
+
+# load rbenv if available
+if which rbenv &>/dev/null ; then
+  eval "$(rbenv init - --no-rehash)"
+fi
+
