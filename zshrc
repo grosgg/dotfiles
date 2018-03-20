@@ -16,6 +16,7 @@ export EDITOR=nvim
 export CLICOLOR=1
 
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 
 # load rbenv if available
 if which rbenv &>/dev/null ; then
